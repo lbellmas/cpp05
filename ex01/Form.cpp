@@ -36,11 +36,7 @@ std::string Form::getStatus()
 const Form  &Form::operator=(const Form &other)
 {
     if (this != &other)
-    {
-        gExec = other.gExec;
-        gSign = other.gSign;
         signature = other.signature;
-    }
     return (*this);
 };
 

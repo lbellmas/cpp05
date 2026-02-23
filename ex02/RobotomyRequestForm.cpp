@@ -3,6 +3,16 @@
 RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm(name, 72, 45)
 {};
 
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other.getName(), 72, 45)
+{}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+    if (this != &other)
+        AForm::operator=(other);
+    return (*this);
+}
+
 RobotomyRequestForm::~RobotomyRequestForm()
 {
     std::cout << "RobotomyRequestForm: " << getName() << " destroyed" << std::endl;

@@ -13,9 +13,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 void Bureaucrat::checkGrade(int grade)
 {
     if (grade > 150)
-        throw GradeTooHighException();
-    else if (grade < 1)
         throw GradeTooLowException();
+    else if (grade < 1)
+        throw GradeTooHighException();
 }
 
 void Bureaucrat::incrementGrade(int plus)

@@ -2,6 +2,17 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 145, 137)
 {};
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other.getName(), 145, 137)
+{}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+    if (this != &other)
+        AForm::operator=(other);
+    return (*this);
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
     std::cout << "ShrubberyCreationForm: " << this->getName() << " destroyed" << std::endl;

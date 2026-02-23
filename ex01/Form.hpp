@@ -7,10 +7,10 @@ class Bureaucrat;
 class Form
 {
     private:
-        std::string name;
+        const std::string name;
         bool    signature;
-        int gSign;
-        int gExec;
+        const int gSign;
+        const int gExec;
     public:
         Form(std::string name, int sign, int exec);
         Form(Form& copy);

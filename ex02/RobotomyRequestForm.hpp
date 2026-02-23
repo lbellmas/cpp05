@@ -9,4 +9,6 @@ class RobotomyRequestForm : public AForm
         ~RobotomyRequestForm();
         int Drill() const;
         void    execute(Bureaucrat const & executor) const;
+        RobotomyRequestForm(const RobotomyRequestForm &other);
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 };
