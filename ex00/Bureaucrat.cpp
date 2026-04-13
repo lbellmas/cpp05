@@ -18,17 +18,17 @@ void Bureaucrat::checkGrade(int grade)
         throw GradeTooHighException();
 }
 
-void Bureaucrat::incrementGrade(int plus)
+void Bureaucrat::incrementGrade(void)
 {
-    checkGrade(grade - plus);
-    grade -= plus;
+    checkGrade(grade - 1);
+    grade--;
 }
-void Bureaucrat::decrementGrade(int minus)
+void Bureaucrat::decrementGrade(void)
 {
-    checkGrade(grade + minus);
-    grade += minus;
+    checkGrade(grade + 1);
+    grade++;
 }
-Bureaucrat::Bureaucrat(Bureaucrat& copy) : name(copy.name), grade(copy.grade) {};
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name), grade(copy.grade) {};
 
 Bureaucrat::~Bureaucrat()
 {
@@ -48,12 +48,12 @@ void    Bureaucrat::setGrade(int grade)
     this->grade = grade;
 };
 
-std::string    Bureaucrat::getName()
+const std::string    Bureaucrat::getName() const
 {
     return (name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return (grade);
 }
@@ -68,8 +68,8 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return ("Grade selected is too low");
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat burocrata)
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &burocrata)
 {
-    out << burocrata.getName() << ", bureaucrat grade " << burocrata.getGrade() << std::endl;
+    out << burocrata.getName() << ", bureaucrat grade " << burocrata.getGrade();
     return (out);
 }

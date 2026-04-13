@@ -48,12 +48,12 @@ void    Bureaucrat::setGrade(int grade)
     this->grade = grade;
 };
 
-std::string    Bureaucrat::getName()
+const std::string    Bureaucrat::getName() const
 {
     return (name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return (grade);
 }
@@ -74,8 +74,8 @@ void    Bureaucrat::signForm(Form &tosign)
     tosign.beSigned(*this);
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat burocrata)
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &burocrata)
 {
-    out << burocrata.getName() << ", bureaucrat grade " << burocrata.getGrade() << std::endl;
+    out << burocrata.getName() << ", bureaucrat grade " << burocrata.getGrade();
     return (out);
 };

@@ -13,20 +13,20 @@ Form::~Form()
 {
     std::cout << "Form: " << name << " destroyed" << std::endl;
 }
-std::string Form::getName()
+std::string Form::getName() const
 {
     return (name);
 }
-int Form::getExec()
+int Form::getExec() const
 {
     return (gExec);
 }
-int Form::getSign()
+int Form::getSign() const
 {
     return (gSign);
 }
 
-std::string Form::getStatus()
+std::string Form::getStatus() const
 {
     if (signature == false)
         return ("not signed");
@@ -53,9 +53,9 @@ void    Form::beSigned(Bureaucrat &burocrata)
         std::cout << " signed " << name << std::endl;
     }
 }
-std::ostream &operator<<(std::ostream &out, Form doc)
+std::ostream &operator<<(std::ostream &out, const Form& doc)
 {
-    out << doc.getName() << "needs grade: " << doc.getSign() << "to be signed and grade: " << doc.getExec() << "to be executed. This form is currently: " << doc.getStatus() << std::endl;
+    out << doc.getName() << " needs grade: " << doc.getSign() << "to be signed and grade: " << doc.getExec() << "to be executed. This form is currently: " << doc.getStatus();
     return (out);
 }
 

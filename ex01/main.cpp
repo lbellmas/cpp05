@@ -1,18 +1,29 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
-{
-    try
-    {
-        Bureaucrat bur("hola", 150);
-        Form doc("cpp", 150, 14);
-        bur.signForm(doc);
-        Form fail("bad", 1, 1);
-        bur.signForm(fail);
+int main() {
+    try {
+        Bureaucrat a("Alice", 50);
+        Form f("FormA", 40, 30);
+
+        std::cout << f << std::endl;
+
+        a.signForm(f);
+        std::cout << f << std::endl;
     }
-    catch(const std::exception& e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
+    catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-    std::cout << "Lucas gitano" << std::endl;
+    try {
+        Bureaucrat a("Balice", 50);
+        Form f("FormB", 60, 30);
+
+        std::cout << f << std::endl;
+
+        a.signForm(f);
+        std::cout << f << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 }

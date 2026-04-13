@@ -1,31 +1,44 @@
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
-int main()
-{
-    try
-    {
-        Bureaucrat bur("hola", 1);
+int main() {
+    try {
         Intern someRandomIntern;
-        AForm* shrubbery = someRandomIntern.makeForm("shrubbery creation", "home");
-        AForm* robotomy = someRandomIntern.makeForm("robotomy request", "Bender");
-        AForm* presidential = someRandomIntern.makeForm("presidential pardon", "presi");
-        bur.signForm(*shrubbery);
-        bur.signForm(*robotomy);
-        bur.signForm(*presidential);
-        bur.executeForm(*shrubbery);
-        bur.executeForm(*robotomy);
-        bur.executeForm(*presidential);
-        delete shrubbery;
-        delete robotomy;
-        delete presidential;
+        AForm* form4 = someRandomIntern.makeForm("unknown form", "???");
+        if (form4)
+            delete form4;
     }
-    catch(const std::exception& e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
+    catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-    std::cout << "Lucas gitano" << std::endl;
+    try {
+        Intern someRandomIntern;
+        Bureaucrat boss("Boss", 1);
+
+        AForm* form1 = someRandomIntern.makeForm("shrubbery creation", "garden");
+        AForm* form2 = someRandomIntern.makeForm("robotomy request", "Bender");
+        AForm* form3 = someRandomIntern.makeForm("presidential pardon", "Arthur");
+
+        if (form1) {
+            boss.signForm(*form1);
+            boss.executeForm(*form1);
+            delete form1;
+        }
+
+        if (form2) {
+            boss.signForm(*form2);
+            boss.executeForm(*form2);
+            delete form2;
+        }
+
+        if (form3) {
+            boss.signForm(*form3);
+            boss.executeForm(*form3);
+            delete form3;
+        }
+    }
+    catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    return 0;
 }

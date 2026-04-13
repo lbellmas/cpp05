@@ -1,20 +1,21 @@
 #include "Bureaucrat.hpp"
 
-int main()
+int main() 
 {
-    try
-    {
-        Bureaucrat bur("hola", 150);
-        std::cout << bur;
-        //bur.setGrade(160);
-        //bur.setGrade(0);
-        bur.incrementGrade(1);
-        std::cout << bur;
-        bur.decrementGrade(2);
+    try {
+        Bureaucrat a("Alice", 2);
+        std::cout << a << std::endl;
+
+        a.incrementGrade();
+        std::cout << "After increment: " << a << std::endl;
+
+        a.decrementGrade();
+        std::cout << "After decrement: " << a << std::endl;
+
+        // Esto debería lanzar excepción
+        Bureaucrat b("Bob", 151);
     }
-    catch(const std::exception& e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
+    catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-    std::cout << "Lucas gitano" << std::endl;
 }

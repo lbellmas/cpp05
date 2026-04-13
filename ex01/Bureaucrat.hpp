@@ -17,8 +17,8 @@ class Bureaucrat
         Bureaucrat(std::string name);
         Bureaucrat(std::string name, int grade);
         void setGrade(int grade);
-        std::string getName();
-        int getGrade();
+        const std::string getName() const;
+        int getGrade() const;
         void checkGrade(int grade);
         void incrementGrade(int plus);
         void decrementGrade(int minus);
@@ -36,5 +36,5 @@ class Bureaucrat
                 virtual const char* what() const throw();
         };
 };  
-std::ostream &operator<<(std::ostream &out, const Bureaucrat burocrata);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &burocrata);
 #endif

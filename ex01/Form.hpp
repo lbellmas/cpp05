@@ -15,10 +15,10 @@ class Form
         Form(std::string name, int sign, int exec);
         Form(Form& copy);
         ~Form();
-        std::string getName();
-        int getSign();
-        int getExec();
-        std::string getStatus();
+        std::string getName() const;
+        int getSign() const;
+        int getExec() const;
+        std::string getStatus() const;
         const Form  &operator=(const Form &form);
         void    beSigned(Bureaucrat &burocrata);
         class GradeTooHighException : public std::exception
@@ -32,6 +32,6 @@ class Form
                 virtual const char* what() const throw();
         };
 };
-std::ostream &operator<<(std::ostream &out, const Form doc);
+std::ostream &operator<<(std::ostream &out, const Form& doc);
 
 #endif
